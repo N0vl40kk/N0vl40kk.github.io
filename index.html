@@ -1,9 +1,60 @@
 <!DOCTYPE html>
-<html>
+<html lang="ru">
 <head>
-  <title>nvlk.me</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Скоро. Следите за обновлениями.">
+  
+  <!-- Preload critical resources -->
+  <link rel="preload" href="video.mp4" as="fetch" type="video/mp4">
+  <link rel="preload" href="fonts/PIPEC TYPEFACE.ttf" as="font" type="font/ttf" crossorigin>
+  <link rel="preload" href="fonts/Monocraft.otf" as="font" type="font/otf" crossorigin>
+  
+  <title>Скоро</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <h1>hola!</h1>
+  <!-- Video elements with security attributes -->
+  <video autoplay muted loop playsinline class="bg-video" id="bgVideo" preload="metadata">
+    <source src="video.mp4" type="video/mp4">
+    <p>Ваш браузер не поддерживает видео.</p>
+  </video>
+
+  <div class="vignette-overlay"></div>
+
+  <video autoplay muted loop playsinline class="main-video" id="mainVideo" preload="metadata">
+    <source src="video.mp4" type="video/mp4">
+    <p>Ваш браузер не поддерживает видео.</p>
+  </video>
+
+  <video autoplay muted loop playsinline class="side-video-left" id="leftVideo" preload="metadata">
+    <source src="video.mp4" type="video/mp4">
+    <p>Ваш браузер не поддерживает видео.</p>
+  </video>
+
+  <video autoplay muted loop playsinline class="side-video-right" id="rightVideo" preload="metadata">
+    <source src="video.mp4" type="video/mp4">
+    <p>Ваш браузер не поддерживает видео.</p>
+  </video>
+
+  <div class="black-overlay" id="blackOverlay"></div>
+
+  <div class="content">Скоро</div>
+
+  <div class="subtitle">Instagram <a href="https://instagram.com/bybaizz" target="_blank" rel="noopener noreferrer nofollow">@bybaizz</a></div>
+
+  <div class="heart">❤️</div>
+
+  <div class="thank-you">спасибо за поддержку</div>
+
+  <button class="works-button" id="worksButton" type="button" aria-label="Переключить режим просмотра работ"></button>
+
+  <div class="loading-screen" id="loadingScreen">
+    <div class="progress-bar" id="progressBar"></div>
+  </div>
+  
+  <!-- Load script with integrity check -->
+  <script src="script.js"></script>
+
 </body>
 </html>
