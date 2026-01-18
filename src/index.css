@@ -1,0 +1,67 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ШРИФТЫ */
+@font-face { font-family: 'Pipec'; src: url('/fonts/PIPECTYPEFACE.ttf') format('truetype'); font-display: swap; }
+@font-face { font-family: 'Monument Extended'; src: url('/fonts/monument-extended-bold.ttf') format('truetype'); font-weight: 700; font-style: normal; font-display: swap; }
+@font-face { font-family: 'Monocraft'; src: url('/fonts/Monocraft.otf') format('opentype'); font-display: swap; }
+
+/* СКРЫТИЕ SCROLLBAR (ГЛОБАЛЬНО) */
+html, body, #root {
+    margin: 0; padding: 0; overflow-x: hidden; background-color: #000;
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE/Edge */
+}
+*::-webkit-scrollbar { display: none; width: 0; height: 0; background: transparent; }
+
+/* БЕГУЩАЯ СТРОКА (240s) */
+.marquee-container {
+    display: flex; overflow: hidden; white-space: nowrap; width: 100%;
+}
+.marquee-content {
+    display: flex;
+    animation: marquee-scroll 240s linear infinite; 
+    will-change: transform;
+}
+@keyframes marquee-scroll {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); } 
+}
+
+/* ГРАДИЕНТ */
+.insta-live-gradient {
+    background: linear-gradient(45deg, #0f0f1a, #240b36, #380018, #3d1a00);
+    background-size: 300% 300%;
+    animation: gradient-move 8s ease infinite;
+}
+@keyframes gradient-move {
+    0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; }
+}
+
+/* МЫШКА */
+.mouse-tutorial-anim { animation: mouse-hover-only 3s infinite ease-in-out; opacity: 0; }
+@keyframes mouse-hover-only {
+    0% { opacity: 0; transform: translate(60px, 60px); }
+    15% { opacity: 1; transform: translate(60px, 60px); }
+    50% { opacity: 1; transform: translate(0px, 0px); }
+    80% { opacity: 1; transform: translate(0px, 0px); }
+    100% { opacity: 0; transform: translate(0px, 0px); }
+}
+
+/* АНИМАЦИЯ ПОДВАЛА (BLOBS) */
+.blob-anim { 
+    position: absolute; 
+    border-radius: 50%; 
+    filter: blur(80px); 
+    opacity: 0.6; 
+    mix-blend-mode: screen; 
+    animation: blob-float 10s infinite ease-in-out alternate; 
+}
+.blob-anim-2 { animation-delay: -2s; animation-duration: 12s; }
+.blob-anim-3 { animation-delay: -4s; animation-duration: 9s; }
+@keyframes blob-float {
+    0% { transform: translate(0, 0) scale(1); } 33% { transform: translate(30px, -50px) scale(1.1); } 66% { transform: translate(-20px, 20px) scale(0.9); } 100% { transform: translate(10px, -10px) scale(1.05); }
+}
+
+.glassy-card { backdrop-filter: blur(40px) saturate(180%); box-shadow: inset 0 0 50px rgba(255,255,255,0.02), 0 30px 60px rgba(0,0,0,0.7); }
