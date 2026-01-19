@@ -1,0 +1,15 @@
+version: 2
+updates:
+  # Проверка npm пакетов (библиотек) раз в неделю
+  - package-ecosystem: "npm"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+    open-pull-requests-limit: 10
+
+  # Проверка GitHub Actions (скриптов деплоя) раз в неделю
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+    open-pull-requests-limit: 10
